@@ -1,0 +1,30 @@
+basePath: /
+host: localhost:8080
+info:
+  contact: {}
+  description: API to convert a range of numbers to Roman numerals.
+  title: Roman Numeral API
+  version: "1.0"
+paths:
+  /convert:
+    get:
+      parameters:
+      - description: The range of numbers to convert, in the format 'from-to'
+        in: query
+        name: range
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: string
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+swagger: "2.0"
