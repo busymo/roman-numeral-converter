@@ -40,6 +40,14 @@ The application will be available at http://localhost:8080.
 
 Swagger is available at: http://localhost:8080/swagger/index.html/
 
+5. Docker compose
+
+Alternatively, one can use docker compose to build and run the project, as following:
+
+```bash
+docker-compose up
+```
+
 ## Using the API
 The API has a single endpoint, /convert, which accepts a range query parameter in the format 'from-to'. 
 
