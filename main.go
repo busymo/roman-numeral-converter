@@ -7,7 +7,6 @@ import (
 	"github.com/gin-gonic/gin"
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
-	_ "roman-numeral-api/docs"
 )
 
 // @title Roman Numeral API
@@ -32,35 +31,35 @@ func main() {
 // @Param range query string true "The range of numbers to convert, in the format 'from-to'"
 // @Router /convert [get]
 func convertRange(c *gin.Context) {
-    rangeStr := c.Query("range")
-    rangeParts := strings.Split(rangeStr, "-")
+	rangeStr := c.Query("range")
+	rangeParts := strings.Split(rangeStr, "-")
 
-    if len(rangeParts) != 2 {
-        c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid input. Ensure input is in the format 'from-to'."})
-        return
-    }
+	if len(rangeParts) != 2 {
+		c.JSON(http.StatusBadRequest, gin.H{"ERROR": "Invalid input! Ensure that the input is in the format 'from-to'."})
+		return
+	}
 
-    from, err1 := strconv.Atoi(rangeParts[0])
-    to, err2 := strconv.Atoi(rangeParts[1])
+	from, err1 := strconv.Atoi(rangeParts[0])
+	to, err2 := strconv.Atoi(rangeParts[1])
 
-    if err1 != nil || err2 != nil || from < 1 || to > 3999 || from > to {
-        c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid input. Ensure numbers are between 1 and 3999 and 'from' is less than or equal to 'to'."})
-        return
-    }
+	if err1 != nil || err2 != nil || from < 1 || to > 3999 || from > to {
+		c.JSON(http.StatusBadRequest, gin.H{"ERROR": "Invalid input. Ensure that numbers are integers and between 1 to 3999. Also, 'from' is less than or equal to 'to'."})
+		return
+	}
 
-    // Create a sorted slice of integers from `from` to `to`
-    numbers := make([]int, to-from+1)
-    for i := range numbers {
-        numbers[i] = from + i
-    }
+	// Create a sorted slice of integers from `from` to `to`
+	numbers := make([]int, to-from+1)
+	for i := range numbers {
+		numbers[i] = from + i
+	}
 
-    // Convert each integer to a Roman numeral and append it to a slice
-    romanNumerals := make([]string, len(numbers))
-    for i, num := range numbers {
-        romanNumerals[i] = toRoman(num)
-    }
+	// Convert each integer to a Roman numeral and append it to a slice
+	romanNumerals := make([]string, len(numbers))
+	for i, num := range numbers {
+		romanNumerals[i] = toRoman(num)
+	}
 
-    c.JSON(http.StatusOK, romanNumerals)
+	c.JSON(http.StatusOK, romanNumerals)
 }
 
 func toRoman(num int) string {
