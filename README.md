@@ -36,7 +36,9 @@ docker build -t roman-numeral-converter .
 docker run -p 8080:8080 roman-numeral-converter
 ```
 
-The application will be available at http://localhost:8080.
+The application will be available at http://localhost:8080. 
+
+Swagger is available at: http://localhost:8080/swagger/index.html/
 
 ## Using the API
 The API has a single endpoint, /convert, which accepts a range query parameter in the format 'from-to'. 
