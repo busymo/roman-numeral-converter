@@ -2,8 +2,10 @@ package main
 
 import (
 	"net/http"
+	_ "roman-numeral-api/docs"
 	"strconv"
 	"strings"
+
 	"github.com/gin-gonic/gin"
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
@@ -11,7 +13,7 @@ import (
 
 // @title Roman Numeral API
 // @version 1.0
-// @description API to convert a range of numbers to Roman numerals.
+// @description API to convert a range of numbers (integers) to Roman numerals.
 // @host localhost:8080
 // @BasePath /
 
@@ -28,7 +30,7 @@ func main() {
 
 // @Success 200 {object} []string
 // @Failure 400 {object} map[string]string
-// @Param range query string true "The range of numbers to convert, in the format 'from-to'"
+// @Param range query string true "The range of numbers (integers) to convert, in the format 'from-to'"
 // @Router /convert [get]
 func convertRange(c *gin.Context) {
 	rangeStr := c.Query("range")

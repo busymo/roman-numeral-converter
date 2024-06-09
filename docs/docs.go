@@ -20,7 +20,7 @@ const docTemplate = `{
                 "parameters": [
                     {
                         "type": "string",
-                        "description": "The range of numbers to convert, in the format 'from-to'",
+                        "description": "The range of numbers (integers) to convert, in the format 'from-to'",
                         "name": "range",
                         "in": "query",
                         "required": true
@@ -58,7 +58,7 @@ var SwaggerInfo = &swag.Spec{
 	BasePath:         "/",
 	Schemes:          []string{},
 	Title:            "Roman Numeral API",
-	Description:      "API to convert a range of numbers to Roman numerals.",
+	Description:      "API to convert a range of numbers (integers) to Roman numerals.",
 	InfoInstanceName: "swagger",
 	SwaggerTemplate:  docTemplate,
 	LeftDelim:        "{{",
