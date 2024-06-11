@@ -60,3 +60,18 @@ To run the tests, use the go test command:
 
 ```bash
 go test -v ./...
+```
+
+## Future Work
+
+### Improvements:
+- **Error Handling:** Provide more detailed and user-friendly error messages.
+- **Input Validation**: Implement more robust input validation.
+- **Logging**: Add structured logging for better traceability.
+- **Rate Limiting**: Prevent abuse by implementing rate limiting.
+
+### Production (ready):
+- **Security**: Add authentication and authorization mechanisms.
+- **Scalability**: Set up load balancing and auto-scaling.
+- **CI/CD**: Integrate with a CI/CD pipeline for automated testing and deployment.
+- **Monitoring**: Implement monitoring and alerting systems.
